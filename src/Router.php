@@ -26,10 +26,16 @@ class Router {
     return $this;
   }
 
+  public function url(string $name, array $params = [])
+  {
+    return $this->router->generate($name, $params);
+  }
+
   public function run() : self
   {
     $match = $this->router->match();
     $view = $match['target'];
+    $router = $this;
     ob_start();
     require $this->viewPath . DIRECTORY_SEPARATOR . $view . '.php';
     $content = ob_get_clean();
