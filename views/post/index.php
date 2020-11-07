@@ -3,21 +3,14 @@
 use App\Connection;
 use App\Helpers\Text;
 use App\Model\Post;
+use App\URL;
 
-  $title = 'Mon Blog';
+$title = 'Mon Blog';
 
   $pdo = Connection::getPDO();
 
-  $page = $_GET['page'] ?? 1;
+  $currentPage = URL::getPositiveInt('page', 1);
 
-  if(!filter_var($page, FILTER_VALIDATE_INT)) {
-    throw new Exception('Numéro de page invalide');
-  };
-
-  $currentPage = (int)$page;
-  if($currentPage <= 0) {
-    throw new Exception('Numéro de page invalide');
-  }
   $count = (int)$pdo->query('SELECT COUNT(id) FROM post')->fetch(PDO::FETCH_NUM)[0];
   $perPage = 12;
   $pages = ceil($count / $perPage);
