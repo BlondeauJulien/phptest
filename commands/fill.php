@@ -1,8 +1,8 @@
 <?php
 
-$pdo = new PDO('mysql:dbname=tutoblog;host=127.0.0.1', 'root', 'u9mYNDLGP89TVaYBlvFe', [
-  PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
-]);
+use App\Connection;
+
+$pdo = Connection::getPDO();
 
 $pdo->exec('SET FOREIGN_KEY_CHECKS = 0');
 $pdo->exec('TRUNCATE TABLE post_category');
