@@ -19,7 +19,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '8246ff935830608fb5c07bc7176d4b5360ab1a1b',
+    'reference' => 'd9c1e25ea58e74ba4343eda17d9f0597439aeb2e',
     'name' => '__root__',
   ),
   'versions' => 
@@ -31,7 +31,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '8246ff935830608fb5c07bc7176d4b5360ab1a1b',
+      'reference' => 'd9c1e25ea58e74ba4343eda17d9f0597439aeb2e',
     ),
     'altorouter/altorouter' => 
     array (
@@ -51,6 +51,33 @@ private static $installed = array (
       ),
       'reference' => 'bc0fd11bc455cc20ee4b5edabc63ebbf859324c7',
     ),
+    'fzaninotto/faker' => 
+    array (
+      'pretty_version' => 'v1.8.0',
+      'version' => '1.8.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'f72816b43e74063c8b10357394b6bba8cb1c10de',
+    ),
+    'graham-campbell/result-type' => 
+    array (
+      'pretty_version' => 'v1.0.1',
+      'version' => '1.0.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '7e279d2cd5d7fbb156ce46daada972355cea27bb',
+    ),
+    'phpoption/phpoption' => 
+    array (
+      'pretty_version' => '1.7.5',
+      'version' => '1.7.5.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '994ecccd8f3283ecf5ac33254543eb0ac946d525',
+    ),
     'psr/log' => 
     array (
       'pretty_version' => '1.1.3',
@@ -59,6 +86,15 @@ private static $installed = array (
       array (
       ),
       'reference' => '0f73288fd15629204f9d42b7055f72dacbe811fc',
+    ),
+    'symfony/polyfill-ctype' => 
+    array (
+      'pretty_version' => 'v1.20.0',
+      'version' => '1.20.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'f4ba089a5b6366e453971d3aad5fe8e897b37f41',
     ),
     'symfony/polyfill-mbstring' => 
     array (
@@ -86,6 +122,15 @@ private static $installed = array (
       array (
       ),
       'reference' => '4e13f3fcefb1fcaaa5efb5403581406f4e840b9a',
+    ),
+    'vlucas/phpdotenv' => 
+    array (
+      'pretty_version' => 'v5.2.0',
+      'version' => '5.2.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'fba64139db67123c7a57072e5f8d3db10d160b66',
     ),
   ),
 );
