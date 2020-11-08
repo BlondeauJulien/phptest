@@ -1,5 +1,5 @@
 <?php
-namespace APP\Model;
+namespace App\Model;
 
 use App\Helpers\Text;
 use \DateTime;
@@ -16,6 +16,11 @@ class Post {
   public function getName(): ?string
   {
     return $this->name;
+  }
+
+  public function getFormattedContent(): ?string
+  {
+    return nl2br(htmlentities($this->content));
   }
 
   public function getExcerpt(): ?string
