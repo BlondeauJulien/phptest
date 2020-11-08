@@ -8,7 +8,7 @@
 </head>
 <body class="d-flex flex-column h-100">
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <a href="#" class="bavbar-brand">Mon site </a>
+    <a href="#" class="navbar-brand">Mon site </a>
   </nav>
 
   <div class="container mt-4">

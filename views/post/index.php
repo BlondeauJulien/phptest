@@ -7,19 +7,19 @@ use App\URL;
 
 $title = 'Mon Blog';
 
-  $pdo = Connection::getPDO();
+$pdo = Connection::getPDO();
 
-  $currentPage = URL::getPositiveInt('page', 1);
+$currentPage = URL::getPositiveInt('page', 1);
 
-  $count = (int)$pdo->query('SELECT COUNT(id) FROM post')->fetch(PDO::FETCH_NUM)[0];
-  $perPage = 12;
-  $pages = ceil($count / $perPage);
-  if($currentPage <= 0) {
-    throw new Exception('Cette page n\'existe pas');
-  }
-  $offset = $perPage * ($currentPage - 1);
-  $query = $pdo->query("SELECT * FROM post ORDER BY created_at DESC LIMIT  $perPage OFFSET $offset");
-  $posts = $query->fetchAll(PDO::FETCH_CLASS, Post::class);
+$count = (int)$pdo->query('SELECT COUNT(id) FROM post')->fetch(PDO::FETCH_NUM)[0];
+$perPage = 12;
+$pages = ceil($count / $perPage);
+if($currentPage <= 0) {
+  throw new Exception('Cette page n\'existe pas');
+}
+$offset = $perPage * ($currentPage - 1);
+$query = $pdo->query("SELECT * FROM post ORDER BY created_at DESC LIMIT  $perPage OFFSET $offset");
+$posts = $query->fetchAll(PDO::FETCH_CLASS, Post::class);
 
 ?>
 
