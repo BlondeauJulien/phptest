@@ -2,7 +2,7 @@
 
 use App\Connection;
 use App\Model\{Category, Post};
-use App\URL;
+use App\PaginatedQuery;
 
 $id = (int)$params['id'];
 $slug = $params['slug'];
@@ -26,28 +26,19 @@ if($category->getSlug() !== $slug) {
 
 $title = htmlentities($category->getName());
 
-$pdo = Connection::getPDO();
+$paginatedQuery = new PaginatedQuery(
+  "SELECT p.* 
+  FROM post p 
+  JOIN post_category pc ON pc.post_id = p.id 
+  WHERE pc.category_id = {$category->getID()} 
+  ORDER BY created_at DESC",
+  "SELECT COUNT(category_id) FROM post_category WHERE category_id = {$category->getID()}",
+  Post::class
 
-$currentPage = URL::getPositiveInt('page', 1);
-
-$count = (int)$pdo
-->query('SELECT COUNT(category_id) FROM post_category WHERE category_id = ' . $category->getID())
-->fetch(PDO::FETCH_NUM)[0];
-$perPage = 12;
-$pages = ceil($count / $perPage);
-if($currentPage <= 0) {
-  throw new Exception('Cette page n\'existe pas');
-}
-$offset = $perPage * ($currentPage - 1);
-$query = $pdo->query("
-  SELECT p.*
-  FROM post p
-  JOIN post_category pc ON pc.post_id = p.id
-  WHERE pc.category_id = {$category->getID()}
-  ORDER BY created_at DESC
-  LIMIT $perPage OFFSET $offset
-");
-$posts = $query->fetchAll(PDO::FETCH_CLASS, Post::class);
+);
+/** @var Post[] */
+$posts = $paginatedQuery->getItems();
+dd($posts);
 $link = $router->url('category', ['id' => $category->getID(), 'slug' => $category->getSlug()]);
 
 ?>
